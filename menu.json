@@ -1,0 +1,149 @@
+{
+    "MainDish": [
+        {
+            "code": 0,
+            "name": "Hamburguesa",
+            "price": 1200
+        },
+        {
+            "code": 1,
+            "name": "Sandwich",
+            "price": 1000
+        },
+        {
+            "code": 2,
+            "name": "Pollo",
+            "price": 1100
+        },
+        {
+            "code": 3,
+            "name": "Wrap",
+            "price": 1100
+        },
+        {
+            "code": 4,
+            "name": "Pizza",
+            "price": 2000
+        },
+        {
+            "code": 5,
+            "name": "Hot Dog",
+            "price": 1200
+        }
+    ],
+    "Beverage": [
+        {
+            "code": 6,
+            "name": "Gaseosa",
+            "price": 800
+        },
+        {
+            "code": 7,
+            "name": "Café",
+            "price": 500
+        },
+        {
+            "code": 8,
+            "name": "Té",
+            "price": 600
+        },
+        {
+            "code": 9,
+            "name": "Natural",
+            "price": 500
+        },
+        {
+            "code": 10,
+            "name": "Frozen",
+            "price": 900
+        },
+        {
+            "code": 11,
+            "name": "Batido",
+            "price": 700
+        }
+    ],
+    "Additional": [
+        {
+            "code": 12,
+            "name": "Papas",
+            "price": 600
+        },
+        {
+            "code": 13,
+            "name": "Uvas",
+            "price": 500
+        },
+        {
+            "code": 14,
+            "name": "Patatas",
+            "price": 600
+        },
+        {
+            "code": 15,
+            "name": "Maíz",
+            "price": 600
+        },
+        {
+            "code": 16,
+            "name": "Tres leches",
+            "price": 800
+        },
+        {
+            "code": 17,
+            "name": "Ensalada",
+            "price": 700
+        },
+        {
+            "code": 18,
+            "name": "Puré",
+            "price": 600
+        }
+    ],
+    "Combo": [
+        {
+            "mainDish": "Hamburguesa",
+            "beverages": [
+                "Gaseosa"
+            ],
+            "additionals": [
+                "Papas"
+            ]
+        },
+        {
+            "mainDish": "Pollo",
+            "beverages": [
+                "Gaseosa"
+            ],
+            "additionals": [
+                "Papas"
+            ]
+        },
+        {
+            "mainDish": "Hot Dog",
+            "beverages": [
+                "Gaseosa"
+            ],
+            "additionals": [
+                "Puré"
+            ]
+        },
+        {
+            "mainDish": "Pizza",
+            "beverages": [
+                "Gaseosa"
+            ],
+            "additionals": []
+        },
+        {
+            "mainDish": "Pizza",
+            "beverages": [
+                "Gaseosa"
+            ],
+            "additionals": [
+                "Tres leches",
+                "Ensalada"
+            ]
+        }
+    ]
+}

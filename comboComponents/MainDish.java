@@ -2,7 +2,11 @@ package comboComponents;
 
 public class MainDish implements IComboComponent<MainDish> {
 
-    public MainDish(int code, String name, double price) {
+    private int code;
+    private String name;
+    private double price;
+
+    public MainDish(Integer code, String name, Double price) {
         this.code = code;
         this.name = name;
         this.price = price;
@@ -21,6 +25,11 @@ public class MainDish implements IComboComponent<MainDish> {
     @Override
     public MainDish deepClone() {
         return clone();
+    }
+
+    @Override
+    public String toString() {
+        return this.code + " - " + this.name + ": &emsp; " + this.getPrice();
     }
 
 }

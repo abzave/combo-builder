@@ -2,7 +2,11 @@ package comboComponents;
 
 public class Beverage implements IComboComponent<Beverage> {
 
-    public Beverage(int code, String name, double price) {
+    private int code;
+    private String name;
+    private double price;
+
+    public Beverage(Integer code, String name, Double price) {
         this.code = code;
         this.name = name;
         this.price = price;
@@ -21,6 +25,11 @@ public class Beverage implements IComboComponent<Beverage> {
     @Override
     public Beverage deepClone() {
         return clone();
+    }
+
+    @Override
+    public String toString() {
+        return this.code + " - " + this.name + ": &emsp; " + this.getPrice();
     }
 
 }

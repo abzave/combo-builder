@@ -2,7 +2,11 @@ package comboComponents;
 
 public class Additional implements IComboComponent<Additional>{
 
-    public Additional(int code, String name, double price) {
+    private int code;
+    private String name;
+    private double price;
+
+    public Additional(Integer code, String name, Double price) {
         this.code = code;
         this.name = name;
         this.price = price;
@@ -21,6 +25,11 @@ public class Additional implements IComboComponent<Additional>{
     @Override
     public Additional deepClone() {
         return clone();
+    }
+
+    @Override
+    public String toString() {
+        return this.code + " - " + this.name + ": &emsp; " + this.getPrice();
     }
 
 }

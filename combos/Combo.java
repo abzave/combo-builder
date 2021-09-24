@@ -3,7 +3,9 @@ package combos;
 import patternInterfaces.IPrototype;
 import patternInterfaces.IBuilder;
 import comboComponents.IComboComponent;
+
 import java.util.List;
+import java.util.ArrayList;
 
 public class Combo implements IPrototype<Combo> {
 
@@ -24,14 +26,22 @@ public class Combo implements IPrototype<Combo> {
     public double getTotalPrice() {
         double totalPrice = mainDish.getPrice();
 
-        additionals.forEach(additional -> {
+        for (IComboComponent additional : additionals) {
             totalPrice += additional.getPrice();
-        });
-        beverages.forEach(beverage -> {
+        }
+        for (IComboComponent beverage : beverages) {
             totalPrice += beverage.getPrice();
-        });
+        }
         
         return totalPrice;
+    }
+
+    public void addAdditional(IComboComponent additional) {
+        this.additionals.add(additional);
+    }
+
+    public void addBeverage(IComboComponent beverage) {
+        this.beverages.add(beverage);
     }
 
     @Override
@@ -45,20 +55,37 @@ public class Combo implements IPrototype<Combo> {
         List<IComboComponent> newBeverages = new ArrayList();
 
         additionals.forEach(additional -> {
-            newAdditionals.add(additional.deepClone());
+            newAdditionals.add((IComboComponent) additional.deepClone());
         });
         beverages.forEach(beverage -> {
-            newBeverages.add(beverage.deepClone());
+            newBeverages.add((IComboComponent) beverage.deepClone());
         });
 
-        return new Combo(mainDish.deepClone(), newAdditionals, newBeverages);
+        return new Combo((IComboComponent) mainDish.deepClone(), newAdditionals, newBeverages);
     }
+
+    @Override
+        public String toString() {
+            StringBuilder itemList = new StringBuilder("Combo: &emsp; " + this.getTotalPrice() + "<br>");
+
+            itemList.append("&emsp; " + mainDish.toString() + "<br>");
+
+            for(IComboComponent additional : additionals){
+                itemList.append("&emsp;" + additional.toString() + "<br>");
+            }
+
+            for(IComboComponent beverage : beverages){
+                itemList.append("&emsp;" + beverage.toString() + "<br>");
+            }
+            
+            return itemList.toString();
+        }
 
     public static class ComboBuilder implements IBuilder<Combo> {
 
         private IComboComponent mainDish;
-        private List<IComboComponent> additionals;
-        private List<IComboComponent> beverages;
+        private List<IComboComponent> additionals = new ArrayList<>();
+        private List<IComboComponent> beverages = new ArrayList<>();
 
         public ComboBuilder setMainDish(IComboComponent mainDish) {
             this.mainDish = mainDish;
